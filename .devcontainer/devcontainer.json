@@ -1,0 +1,47 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/anaconda
+{
+	"name": "dat.dev-container-conda",
+	"dockerComposeFile": ["./docker-compose.yml"],
+	"service": "project",
+	"runServices": ["project"],
+	"workspaceFolder": "/workspace",
+	// Avoid dubious ownership in repository in dev container,
+	// see https://github.com/microsoft/vscode-remote-release/issues/6810 or https://www.kenmuse.com/blog/avoiding-dubious-ownership-in-dev-containers/
+	"postCreateCommand": {
+		// 	"git": "sudo apt-get update && sudo apt-get install -y git",
+			"git": "git config --global --add safe.directory /workspace",
+			"conda_init": "conda init"
+			// "conda_activate": "conda activate env1"
+		},
+		// "postStartCommand": {
+	// // 	"git": "sudo apt-get update && sudo apt-get install -y git",
+	// 	// "git": "git config --global --add safe.directory /workspace",
+	// 	// "conda_init": "conda init"
+	// 	"conda_activate": "conda activate env1"
+	// },
+	"customizations": {
+        // When connecting to a docker container your local VS Code starts an instance without extensions to ensure isolation and consitency.
+        // Therefore extensions can be specified here for automatic installation when connecting.
+        "vscode": {
+			"settings": { 
+				"terminal.integrated.profiles.linux": {
+					"bash": {
+						"path": "/bin/bash"
+					}
+				}
+			},
+            // Use the VS Code Extenstions "Identifier" to define extensions
+            "extensions": [
+                "ms-python.python",
+				"ms-python.vscode-pylance",
+				"ms-python.black-formatter",
+				"ms-azuretools.vscode-docker",
+				"ms-toolsai.jupyter"
+				//"zainchen.json",
+				//"tomoki1207.pdf",
+				//"grapecity.gc-excelviewer"
+            ]
+        }
+    }
+}

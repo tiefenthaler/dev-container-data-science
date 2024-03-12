@@ -1,0 +1,18 @@
+# version: "3.7"
+
+# networks:
+#   app-net: null
+  
+services:
+  project:
+    # tells Docker Compose to build the Docker image using the Dockerfile in the specified directory.
+    build:
+      context: .
+      dockerfile: ./Dockerfile.debug
+    image: dat/dev-container-conda
+    # networks:
+    #   - app-net
+
+    # Map local volume (parent dir) to container (/workspace)
+    volumes:
+      - ../:/workspace

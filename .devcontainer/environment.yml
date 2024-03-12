@@ -1,0 +1,29 @@
+name: env1
+
+channels:
+  - conda-forge
+  - pytorch
+
+dependencies:
+  - python<=3.11
+  - pip
+  - ipython_genutils
+  - ipykernel
+  - jupyterlab
+  - numpy>=1.22
+  - matplotlib>=3.1
+  - pandas>=1.4
+  - pandas-datareader
+  - scipy
+  - scikit-learn>=1.1
+  - seaborn
+  - lightgbm
+  - pytorch
+  - lightning
+  - imbalanced-learn
+  - mlflow
+  - autogluon.common
+  - pip:
+    - black
+    - 'black[jupyter]'
+    - optuna

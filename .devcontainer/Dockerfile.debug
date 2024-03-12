@@ -1,0 +1,56 @@
+# Comments are provided throughout this file to help you get started.
+# If you need more help, visit the Dockerfile reference guide at https://docs.docker.com/go/dockerfile-reference/
+
+# Create a docker conda image
+# Offical Available Dev Container Templates, see https://containers.dev/templates
+# NOTE: Non Dev Container *Conda Installations might lead to errors during building the container.
+FROM mcr.microsoft.com/devcontainers/miniconda
+
+USER root
+
+# Copy the environment.yml file to the container. Also
+# copy "noop.txt" so the COPY instruction does not fail if no environment.yml exists.
+COPY environment.yml* noop.txt /requirements/
+
+
+# Make RUN commands use `bash --login`:
+# SHELL ["/bin/bash", "--login", "-c"]
+
+# Install linux packages
+RUN apt-get update
+# Install git, process tools
+RUN apt-get update && apt-get -y install git procps build-essential curl swig
+# RUN apt-get update && \
+#     apt-get upgrade -y && \
+#     apt-get install -y git
+RUN git config --global --add safe.directory /workspace
+
+# Add the conda directory to your Linux PATH, since this is not done automatically after installation.
+RUN conda init bash
+
+# Update conda, install and set libmamba solver
+RUN conda update -n base conda -y
+RUN conda install -n base conda-libmamba-solver
+RUN conda config --set solver libmamba
+
+# Create conda env (for your data science work)
+RUN conda env create --file requirements/environment.yml
+
+RUN conda install ipython_genutils
+RUN conda install ipykernel
+RUN ipython kernel install --user --name=env1
+
+
+# RUN conda init
+
+# TODO: switch from mcr.microsoft.com/devcontainers/miniconda to conda/miniconda3:latest
+#       Install Git, since not available in conda/miniconda3:latest
+# RUN apt-get update && \
+#     apt-get upgrade -y && \
+#     apt-get install -y git
+# RUN git config --global --add safe.directory /workspace
+
+
+# The code to run when container is started:
+# Common practice to keep the Docker container running without performing any significant action. 
+ENTRYPOINT ["tail", "-f", "/dev/null"]
