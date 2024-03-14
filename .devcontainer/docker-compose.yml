@@ -4,15 +4,21 @@
 #   app-net: null
   
 services:
-  project:
+  myproject:
     # tells Docker Compose to build the Docker image using the Dockerfile in the specified directory.
     build:
       context: .
       dockerfile: ./Dockerfile.debug
-    image: dat/dev-container-conda
+    image: dat/dev-container-datascience
     # networks:
     #   - app-net
 
     # Map local volume (parent dir) to container (/workspace)
     volumes:
       - ../:/workspace
+
+    working_dir: /workspace
+
+    # Set permissions on the working directory for root user
+    command:
+      - sh -c "chmod -R 777 /workspace && tail -f /dev/null"
