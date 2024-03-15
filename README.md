@@ -1,3 +1,6 @@
+TODO:
+- Issue realted to starting working directory of Jupyter Notebooks within containers. Check out the [**issue on stack overflow**](https://stackoverflow.com/questions/78159957/how-to-define-the-starting-working-directory-of-a-jupyter-notebook-within-a-vs-c).
+
 # VSCode Dev-Container (Docker) Setup for Data Science Projects
 
 This is a [**containerized dev setup**](https://code.visualstudio.com/docs/devcontainers/containers) respectively related for using [**remote containers**](https://code.visualstudio.com/docs/remote/containers) to work on data science / machine learning problems using **Conda, Git with VSCode**.
