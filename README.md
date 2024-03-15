@@ -4,7 +4,7 @@ This is a [**containerized dev setup**](https://code.visualstudio.com/docs/devco
 
 The Repo contains a setup of a local development container using docker compose and VS Code to develop data science projects in a consistent and robust but yet in a simple and customisable way. The Repo provides the configurations and installations for your container, so you can straight get started with your data science work while enjoying the benefits of using docker containers.
 
-Find a detailed guide about this VSCode Dev-Container for Data Science on Medium.
+Find a detailed [**Guide**](https://medium.com/@david.tiefenthaler/docker-dev-container-for-data-science-projects-d4c174425293) about this VSCode Dev-Container for Data Science on Medium.
 
 **Dev Container Main Configurations and Installations:**
 - **Miniconda3**, including Python, Jupyter Notebooks, and more.
