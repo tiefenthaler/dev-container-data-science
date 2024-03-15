@@ -2,7 +2,7 @@
 # If you need more help, visit the Dockerfile reference guide at https://docs.docker.com/go/dockerfile-reference/
 
 # Create a docker conda image
-# Offical Available Dev Container Templates, see https://containers.dev/templates
+# Official Available Dev Container Templates, see https://containers.dev/templates
 # NOTE: Non Dev Container *Conda Installations might lead to errors during building the container.
 FROM mcr.microsoft.com/devcontainers/miniconda
 
