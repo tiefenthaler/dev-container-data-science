@@ -26,6 +26,7 @@
 						"path": "/bin/bash"
 					}
 				},
+				// Define root directory for Jupyter Notebook
 				"jupyter.notebookFileRoot": "${fileDirname}/workspace"
 			},
             // Use the VS Code Extensions "Identifier" to define extensions
